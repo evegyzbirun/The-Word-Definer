@@ -33,4 +33,7 @@ class Word
     @@words = Word.new(self.word, self.id)
   end
 
+  def update(word)
+    @words = word
+  end
 end
