@@ -1,5 +1,5 @@
 require 'rspec'
-require 'pry'
+##require 'pry'
 require 'word'
 
 describe '#Word' do
