@@ -6,7 +6,8 @@ also_reload('lib/**/*.rb')
 
 
 class Word
-  attr_accessor :id, :word
+  attr_reader :id
+  attr_accessor :word
   @@words = {}
   @@total_lines = 0
 
@@ -15,26 +16,32 @@ class Word
     @id = id || @@total_lines += 1
   end
 
+  def self.all
+    @@words.values()
+  end
+
   def ==(words_to_compare)
     self.word() == words_to_compare.word()
   end
 
-  def self.all
-    @@words.strip()
-  end
+ 
 
   def self.clear
-    @@words = ""
-    id_count = 0
+    @@words = {}
+    @@total_lines = 0
    
   end
 
   def save 
-    @@words = Word.new(self.word, self.id)
+    @@words[self.id] = Word.new(self.word, self.id)
   end
 
   def update (word)
     @word = word
   end
-  
+  def delete
+    @@words.delete(self.id)
+  end
+    
+
 end

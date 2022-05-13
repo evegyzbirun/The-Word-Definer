@@ -9,7 +9,7 @@ describe '#Word' do
 
   describe ('.all') do 
     it("returns an empty string when there are no words") do 
-      expect(Word.all).to(eq(""))
+      expect(Word.all).to(eq([]))
     end
   end
   describe ('#==') do 
@@ -20,11 +20,12 @@ describe '#Word' do
     end
   end 
   describe('#save') do 
-    it('saves words') do
+    it ('saves words') do
       word = Word.new('cat', nil)
       word.save()
       word2 = Word.new('fire', nil)
       word2.save()
+    expect(Word.all).to(eq([word, word2]))
     end
   end 
   describe('#update') do
@@ -36,7 +37,7 @@ describe '#Word' do
     end
   end
   describe('#delete') do
-    it(delete word by id) do 
+    it ('delete word by id') do 
       word1 = Word.new('run', 2)
       word1.save()
       word2 = Word.new('jump', 3)
@@ -45,4 +46,15 @@ describe '#Word' do
       expect(Word.all).to(eq([word2]))
     end
   end
-end
+  describe('.clear') do
+    it('clears all words') do
+    word1 = Word.new('fight', nil)
+    word1.save()
+    word2 = Word.new('good', nil)
+    word2.save()
+    Word.clear()
+    expect(Word.all).to(eq([word]))
+    end
+  end
+
+ end
