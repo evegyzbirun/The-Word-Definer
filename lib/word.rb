@@ -6,7 +6,7 @@ also_reload('lib/**/*.rb')
 
 
 class Word
-  attr_accessor :id, :name
+  attr_accessor :id, :word
   @@words = {}
   @@id_count = 0
 
@@ -16,6 +16,7 @@ class Word
   end
 
   def ==(words_to_compare)
+    self.word() == words_to_compare.word()
   end
 
   def self.all

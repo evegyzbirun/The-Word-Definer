@@ -1,5 +1,5 @@
 require 'rspec'
-##require 'pry'
+require 'pry'
 require 'word'
 
 describe '#Word' do
@@ -12,4 +12,11 @@ describe '#Word' do
       expect(Word.all).to(eq(""))
     end
   end
+  describe ('#==') do 
+    it('is the same word with same attributes as another word') do 
+      word = Word.new('car', nil)
+      word2 = Word.new('car', nil)
+      expect(word).to(eq(word2))
+    end
+  end 
 end
