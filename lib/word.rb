@@ -23,7 +23,8 @@ class Word
   end
 
   def self.clear
-    @@words = {}
+    @@words = ""
+    id_count = 0
    
   end
 
