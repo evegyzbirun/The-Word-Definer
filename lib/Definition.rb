@@ -34,7 +34,7 @@ class Definition
   end
 
   def save 
-    @@definitions[self.id] = Word.new(self.definition, self.word_id, self.id)
+    @@definitions[self.id] = Definition.new(self.definition, self.word_id, self.id)
   end
 
   def update (definition ,word_id)
