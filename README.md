@@ -6,7 +6,7 @@
 
 
 
-#### the project link to github: 
+#### the project link to github: https://github.com/evegyzbirun/The-Word-Definer
 
 ## Technologies Used:
 * rspec
