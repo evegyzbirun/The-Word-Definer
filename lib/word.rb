@@ -1,6 +1,13 @@
+require('sinatra')
+require('sinatra/reloader')
+require('./lib/word')
+require('pry')
+also_reload('lib/**/*.rb')
+
+
 class Word
   attr_accessor :id, :name
-  @@words = {}
+  @@words = ""
   @@id_count = 0
 
   def initialize(name, id)
