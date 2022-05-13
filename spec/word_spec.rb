@@ -56,5 +56,13 @@ describe '#Word' do
     expect(Word.all).to(eq([]))
     end
   end
-
+  describe('.find') do
+    it('find a word by id') do
+      word1 = Word,new('player', nil)
+      word1.save()
+      word2 = Word.new('winter', nil)
+      word2.save()
+      expect(Word.find(word1.id)).to(eq(word1))
+    end
+  end
  end
