@@ -53,7 +53,7 @@ describe '#Word' do
     word2 = Word.new('good', nil)
     word2.save()
     Word.clear()
-    expect(Word.all).to(eq([word]))
+    expect(Word.all).to(eq([]))
     end
   end
 
