@@ -46,5 +46,7 @@ class Word
   def self.find(id)
     @@words[id]
   end
-
+  def definition
+    Definition.find_word(self.id)
+  end
 end
