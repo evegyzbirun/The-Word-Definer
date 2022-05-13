@@ -35,4 +35,14 @@ describe '#Word' do
       expect(word1.word()).to(eq("red"))
     end
   end
+  describe('#delete') do
+    it(delete word by id) do 
+      word1 = Word.new('run', 2)
+      word1.save()
+      word2 = Word.new('jump', 3)
+      word2.save()
+      word1.delete()
+      expect(Word.all).to(eq([word2]))
+    end
+  end
 end

@@ -36,4 +36,5 @@ class Word
   def update (word)
     @word = word
   end
+  
 end
