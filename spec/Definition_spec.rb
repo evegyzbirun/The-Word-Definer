@@ -10,16 +10,6 @@ describe '#definition' do
     @word = Word.new('good', nil)
     @word.save()
   end
-  # it('it returns word definitions') do
-     # word1 = Word.new("good", nil)
-     # word1.save()
-      #definition1 = Definition.new("to be desired or approved of", word1_id, nil)
-     # definition1.save()
-      #definition2 = Definition.new('that which is morally right', word2_id, nil)
-      #definition2.save()
-      #expect(word1.definitions).to(eq([definition1, definition2]))
-    #end
-  #end
 
   describe ('.all') do 
     it("returns a list of all definition ") do 
@@ -30,6 +20,12 @@ describe '#definition' do
       expect(Definition.all).to(eq([definition1, definition2]))
     end
   end
-
+  describe ('#==') do 
+  it('is the same definition with same attributes as another word') do 
+    word = Word.new('to be desired or approved of',@word_id, nil)
+    word2 = Word.new('to be desired or approved of',@word_id, nil)
+    expect(definition1).to(eq(definition2))
+  end
+end 
 
 end
