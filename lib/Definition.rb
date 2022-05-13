@@ -14,7 +14,7 @@ class Definition
   def initialize(definition, word_id, id)
     @definition = definition
     @word_id = word_id
-    @id = id || @@total_definition += 1
+    @id = id || @@total_definitions += 1
   end
 
   def self.all
