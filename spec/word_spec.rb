@@ -27,5 +27,12 @@ describe '#Word' do
       word2.save()
     end
   end 
-
+  describe('#update') do
+    it('updates an word by id') do
+      word = Word.new('green', nil)
+      word.save()
+      word.update("red", nil)
+      expect(word.anem).to(eq("red"))
+    end
+  end
 end
