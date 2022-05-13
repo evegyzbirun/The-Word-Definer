@@ -10,9 +10,9 @@ class Word
   @@words = {}
   @@total_lines = 0
 
-  def initialize(name, id)
+  def initialize(word, id)
     @word = word
-    @id = id ||  @@total_lines += 1
+    @id = id || @@total_lines += 1
   end
 
   def ==(words_to_compare)
@@ -33,7 +33,7 @@ class Word
     @@words = Word.new(self.word, self.id)
   end
 
-  def update(word)
-    @words = word
+  def update (word)
+    @word = word
   end
 end
