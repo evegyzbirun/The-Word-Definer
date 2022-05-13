@@ -22,7 +22,7 @@ class Definition
   end
 
   def ==(definition_to_compare)
-    self.definition() == definition_to_compare.definition()
+    (self.definition() == definition_to_compare.definition())
   end
 
  
