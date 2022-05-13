@@ -8,11 +8,11 @@ also_reload('lib/**/*.rb')
 class Word
   attr_accessor :id, :word
   @@words = {}
-  @@id_count = 0
+  @@total_lines = 0
 
   def initialize(name, id)
     @word = word
-    @id = id || @id_count += 1
+    @id = id ||  @@total_lines += 1
   end
 
   def ==(words_to_compare)
