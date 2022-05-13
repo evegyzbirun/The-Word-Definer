@@ -31,14 +31,14 @@ describe '#definition' do
 
     describe('#save') do 
     it ('saves words') do
-      definition1 = Definition.new('cat', nil)
+      definition1 = Definition.new("to be desired or approved of", @word_id, nil)
       definition1.save()
-      definition2 = Definition.new('fire', nil)
+      definition2 = Definition.new('that which is morally right', @word_id, nil)
       definition2.save()
     expect(Definition.all).to(eq([definition1, definition2]))
     end
   end 
-  end
+
 
 
 
