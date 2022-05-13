@@ -7,11 +7,11 @@ also_reload('lib/**/*.rb')
 
 class Word
   attr_accessor :id, :name
-  @@words = ""
+  @@words = {}
   @@id_count = 0
 
   def initialize(name, id)
-    @name = name
+    @word = word
     @id = id || @id_count += 1
   end
 
@@ -19,6 +19,12 @@ class Word
   end
 
   def self.all
-    @@words.values
+    @@words.strip()
   end
+
+  def self.clear
+    @@words = {}
+   
+  end
+
 end
