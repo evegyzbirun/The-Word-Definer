@@ -21,10 +21,10 @@ describe '#Word' do
   end 
   describe('#save') do 
     it('saves words') do
-     word = Word.new('cat', nil)
-     word.save()
-     word2 = Word.new('fire', nil)
-     word2.save()
+      word = Word.new('cat', nil)
+      word.save()
+      word2 = Word.new('fire', nil)
+      word2.save()
     end
   end 
 

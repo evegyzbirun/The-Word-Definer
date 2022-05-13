@@ -29,4 +29,8 @@ class Word
    
   end
 
+  def save 
+    @@words = Word.new(self.word, self.id)
+  end
+
 end
