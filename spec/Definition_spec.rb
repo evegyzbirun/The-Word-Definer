@@ -22,8 +22,8 @@ describe '#definition' do
   end
   describe ('#==') do 
   it('is the same definition with same attributes as another word') do 
-    word = Word.new('to be desired or approved of',@word_id, nil)
-    word2 = Word.new('to be desired or approved of',@word_id, nil)
+    word = Definition.new('to be desired or approved of',@word_id, nil)
+    word2 = Definition.new('to be desired or approved of',@word_id, nil)
     expect(definition1).to(eq(definition2))
   end
 end 
