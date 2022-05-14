@@ -12,6 +12,7 @@
 * rspec
 * Ruby
 * pry
+* HTML
 
 ## Description
 * The application let user to input words and definition(s) that will be saved. Anyone can view a word and being able to add, update or delete one or more definitions
