@@ -38,8 +38,13 @@ describe '#definition' do
     expect(Definition.all).to(eq([definition1, definition2]))
     end
   end 
-
-
-
+    describe('#update') do 
+    if ('updates a definition by id') do
+      definition1 = Definition.new('to be desired or approved of', @word_id, nil)
+      definition1.save()
+      definition1.update('that which is morally right', @word_id)
+      expect(definition1.definition).to(eq('that which is morally right'))
+    end
+  end
 
 end

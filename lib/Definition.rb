@@ -1,8 +1,4 @@
-require('sinatra')
-require('sinatra/reloader')
-require('./lib/Definition')
-require('pry')
-also_reload('lib/**/*.rb')
+
 
 
 class Definition
@@ -29,7 +25,7 @@ class Definition
 
   def self.clear
     @@definitions = {}
-   
+    @@total_definitions = 0
    
   end
 
