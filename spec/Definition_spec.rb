@@ -56,4 +56,14 @@ describe '#definition' do
         expect(Definition.all).to(eq([definition2]))
       end
     end
+    describe('.clear') do
+      it ('clears all words') do
+        definition1 = Definition.new('to be desired or approved of', @word_id, nil)
+        definition1.save()
+        definition2 = Definition.new('that which is morally right', @word_id, nil)
+        definition2.save()
+        Definition.clear()
+        expect(Definition.all).to(eq([]))
+      end
+    end
 end
