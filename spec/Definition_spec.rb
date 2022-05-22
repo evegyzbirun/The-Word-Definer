@@ -57,13 +57,22 @@ describe '#definition' do
       end
     end
     describe('.clear') do
-      it ('clears all words') do
+      it ('clears all definitions') do
         definition1 = Definition.new('to be desired or approved of', @word_id, nil)
         definition1.save()
         definition2 = Definition.new('that which is morally right', @word_id, nil)
         definition2.save()
         Definition.clear()
         expect(Definition.all).to(eq([]))
+      end
+    end
+    describe('.find') do
+      it ('find a definition by id') do
+        definition1 = Definition.new('to be desired or approved of', @word_id, nil)
+        definition1.save()
+        definition2 = Definition.new('that which is morally right', @word_id, nil)
+        definition2.save()
+        expect(Definition.find(definition1.id)).to(eq(definition1))
       end
     end
 end
