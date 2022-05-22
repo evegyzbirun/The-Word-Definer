@@ -39,12 +39,21 @@ describe '#definition' do
     end
   end 
     describe('#update') do 
-    if ('updates a definition by id') do
+    it ('updates a definition by id') do
       definition1 = Definition.new('to be desired or approved of', @word_id, nil)
       definition1.save()
       definition1.update('that which is morally right', @word_id)
       expect(definition1.definition).to(eq('that which is morally right'))
     end
   end
-
+    describe('#delete') do
+      it ('delete definition by id') do
+        definition1 = Definition.new('to be desired or approved of', @word_id, nil)
+        definition1.save()
+        definition2 = Definition.new('that which is morally right', @word_id, nil)
+        definition2.save()
+        definition1.delete()
+        expect(Definition.all).to(eq([definition2]))
+      end
+    end
 end
