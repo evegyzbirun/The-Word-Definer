@@ -49,5 +49,7 @@ get('/words/:id/definitions/definition_id') do
 end
 post('/words/:id/definitions') do
 end
-patch('/words/:id/definitions/definition_id') do
+patch('/words/:id/definitions/:definition_id') do
+end
+delete('/albums/:id/definitions/:definition_id') do
 end
