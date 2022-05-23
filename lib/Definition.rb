@@ -7,8 +7,8 @@ class Definition
   @@definitions = {}
   @@total_definitions = 0
 
-  def initialize(definition, word_id, id)
-    @definition = definition
+  def initialize(name, word_id, id)
+    @name = name
     @word_id = word_id
     @id = id || @@total_definitions += 1
   end
@@ -18,7 +18,7 @@ class Definition
   end
 
   def ==(definition_to_compare)
-    (self.definition() == definition_to_compare.definition())
+    (self.name() == definition_to_compare.name()) && (self.word_id() == definition_to_compare.word_id())
   end
 
  
@@ -30,12 +30,13 @@ class Definition
   end
 
   def save 
-    @@definitions[self.id] = Definition.new(self.definition, self.word_id, self.id)
+    @@definitions[self.id] = Definition.new(self.name, self.word_id, self.id)
   end
 
-  def update (definition ,word_id)
+  def update (name ,word_id)
     @word_id = word_id
-    @definition = definition
+    @name = name
+    @@definitions[self.id] = Definition.new(self.name, self.word_id, self.id)
   end
 
   def delete

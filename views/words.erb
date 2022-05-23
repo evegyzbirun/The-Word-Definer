@@ -1,15 +1,15 @@
 <h1>All Words</h1>
 
-<h3>Available Wordss</h3>
+<h3>Available Words</h3>
 
 <% if @words.any? %>
   <ul>
     <% @words.each do |word| %>
-      <li><%= word.name %></li>
+      <li><a href="/words/<%= word.id %>"><%= word.name %></li>
     <% end %>
   </ul>
 <% else %>
   <p>There are currently no words to display.</p>
 <% end %>
 
-<a href="/albums/new">Add a new word</a>
+<a href="/albums/add_new_word">Add a new word</a>
