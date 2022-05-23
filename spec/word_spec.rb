@@ -33,7 +33,7 @@ describe '#Word' do
       word1 = Word.new("green", 1)
       word1.save()
       word1.update("red")
-      expect(word1.word()).to(eq("red"))
+      expect(word1.name()).to(eq("red"))
     end
   end
   describe('#delete') do

@@ -3,7 +3,7 @@
 
 class Definition
   attr_reader :id
-  attr_accessor :definition, :word_id
+  attr_accessor :name, :word_id
   @@definitions = {}
   @@total_definitions = 0
 

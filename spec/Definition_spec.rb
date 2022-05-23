@@ -43,7 +43,7 @@ describe '#definition' do
       definition1 = Definition.new('to be desired or approved of', @word_id, nil)
       definition1.save()
       definition1.update('that which is morally right', @word_id)
-      expect(definition1.definition).to(eq('that which is morally right'))
+      expect(definition1.name).to(eq('that which is morally right'))
     end
   end
     describe('#delete') do
