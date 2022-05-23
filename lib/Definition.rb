@@ -30,10 +30,10 @@ class Definition
    
   end
 
-  def self.find_by_word(word_id)
+  def self.find_by_word(wrd_id)
     definitions = []
     @@definitions.values.each do |definition|
-      if definition.word.id == word_id
+      if definition.word.id == wrd_id
         definitions.push(definition)
       end
     end

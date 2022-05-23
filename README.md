@@ -22,8 +22,9 @@
 2. clone the project with repo link
 3. use VScode for projcet folder
 4. Run bundle in terminal
-5. start server by using ruby app.rb 
-6. go to http://localhost:4567/
+5. Run rspec for tests
+6. start server by using ruby app.rb 
+7. go to http://localhost:4567/
 
 
 
