@@ -1,9 +1,6 @@
 
-
-
 class Word
-  attr_reader :id
-  attr_accessor :name
+  attr_accessor :name, :id
   @@words = {}
   @@total_lines = 0
 
@@ -16,7 +13,7 @@ class Word
     @@words.values()
   end
 
-  def == (words_to_compare)
+  def ==(words_to_compare)
     self.name() == words_to_compare.name()
   end
 
@@ -42,7 +39,7 @@ class Word
   def self.find(id)
     @@words[id]
   end
-  def definition
+  def definitions
     Definition.find_word(self.id)
   end
 end

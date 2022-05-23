@@ -2,7 +2,7 @@ require('sinatra')
 require('sinatra/reloader')
 require('./lib/word')
 require('pry')
-require('./lib/Definition')
+require('./lib/definition')
 also_reload('lib/**/*.rb')
 
 get('/') do
@@ -14,9 +14,6 @@ get('/words') do
   @words = Word.all
   erb(:words)
 end
-get('/words/new') do
-  erb(:add_new_word)
-end
 
 post('/words') do
   name = params[:word_name]
@@ -25,14 +22,18 @@ post('/words') do
   @words = Word.all()
   erb(:words)
 end
-get('/words/:id') do
+get('/word/:id') do
   @word = Word.find(params[:id].to_i())
   erb(:word)
 end
-#get('/words/:id/edit_word')
-  #@word = Word.find(params[:id].to_i())
-  #erb(:edit_word)
-#end
+get('/words/:id/edit') do
+  @word = Word.find(params[:id].to_i())
+  erb(:edit_word)
+end
+get('/words/new') do
+  erb(:add_new_word)
+end
+
 patch('/words/:id') do
   @word = Word.find(params[:id].to_i())
   @word.update(params[:name])

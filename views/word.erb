@@ -1,10 +1,4 @@
-<h4>Word Name: <%= @word.name %></h4>
-
-<p><a href="/words/<%= @word.id %>/edit">edit word</a></p>
-<a href="/words">Return to the word list</a>
-
-<p><a href="/words?<%= @word.id %>/edit">Edit word</a></p>
-<a href="/words">Return to word list</a>
+<h4>Word Name: "<%= @word.name %>"</h4>
 
 <h3>Word Definitions</h3>
 
@@ -27,3 +21,6 @@
   </div>
   <button type="submit" class="btn">Add definition</button>
 </form>
+
+<p><a href="/wprds/<%= @word.id %>/edit">Edit the word</a></p>
+<p><a href="/words/">Return to the word list</a></p>
