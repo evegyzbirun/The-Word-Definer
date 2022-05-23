@@ -4,6 +4,7 @@
 class Definition
   attr_reader :id
   attr_accessor :name, :word_id
+
   @@definitions = {}
   @@total_definitions = 0
 
@@ -29,6 +30,16 @@ class Definition
    
   end
 
+  def self.find_by_word(word_id)
+    definitions = []
+    @@definitions.values.each do |definition|
+      if definition.word.id == word_id
+        definitions.push(definition)
+      end
+    end
+    definitions
+  end
+
   def save 
     @@definitions[self.id] = Definition.new(self.name, self.word_id, self.id)
   end
@@ -47,5 +58,7 @@ class Definition
     @@definitions[id]
   end
 
-  
+  def word
+    Word.find(self.word_id)
+  end
 end

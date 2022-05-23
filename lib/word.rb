@@ -13,8 +13,8 @@ class Word
     @@words.values()
   end
 
-  def ==(words_to_compare)
-    self.name() == words_to_compare.name()
+  def ==(word_to_compare)
+    self.name() == word_to_compare.name()
   end
 
  
@@ -39,7 +39,7 @@ class Word
   def self.find(id)
     @@words[id]
   end
-  def definitions
-    Definition.find_word(self.id)
+  def findDef
+    Definition.find_by_word(self.id)
   end
 end
