@@ -1,8 +1,8 @@
 require('sinatra')
 require('sinatra/reloader')
 require('./lib/word')
-require('pry')
 require('./lib/definition')
+require('pry')
 also_reload('lib/**/*.rb')
 
 get('/') do
@@ -23,14 +23,15 @@ get('/words/new') do
 end
 get('/words/:id') do
   @word = Word.find(params[:id].to_i())
-  erb(:word)
   
+  erb(:word)
 end
 
 
 post('/words') do
   name = params[:word_name]
   id = params[:id]
+
   word = Word.new(name, id)
   word.save()
   @words = Word.all()

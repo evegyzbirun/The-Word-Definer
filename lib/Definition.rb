@@ -1,6 +1,4 @@
 
-
-
 class Definition
   attr_reader :id
   attr_accessor :name, :word_id
