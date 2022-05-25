@@ -17,7 +17,7 @@ class Definition
   end
 
   def ==(definition_to_compare)
-    (self.name() == definition_to_compare.name()) && (self.word_id() == definition_to_compare.word_id())
+    self.name() == definition_to_compare.name() && self.word_id() == definition_to_compare.word_id() && self.id() == definition_to_compare.id()
   end
 
  
@@ -59,4 +59,5 @@ class Definition
   def word
     Word.find(self.word_id)
   end
+  
 end

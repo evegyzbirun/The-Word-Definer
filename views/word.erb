@@ -1,7 +1,6 @@
 <h4>Word Name: <%= @word.name %></h4>
 
-<p><a href="/words/<%= @word.id %>/edit">Edit the word</a></p>
-<p><a href="/words">Return to the word list</a></p>
+
 
 <h3>Word Definitions</h3>
 
@@ -19,9 +18,11 @@
 
 <form action="/words/<%= @word.id %>/definitions" method="post">
   <div class="form-group">
-    <label for="definition_name">Definition name</label>
-    <input id="definition_name" name="definition_name" class="form-control" type="text">
+    <label for="defin_name">Definition name</label>
+    <input id="defin_name" name="defin_name" class="form-control" type="text">
   </div>
   <button type="submit" class="btn">Add definition</button>
 </form>
 
+<p><a href="/words/<%= @word.id %>/edit">Edit the word</a></p>
+<p><a href="/words">Return to the word list</a></p>
