@@ -18,9 +18,11 @@ describe('create a definition path', {:type => :feature}) do
   it('creates a word and then goes to word page') do 
     word = Word.new("run", nil)
     word.save
-    visit("/words/#{word.id}")
-    fill_in('definition_name', :with => 'moving fast')
-    click_on('Add definition')
+    definition = Definition('moving fast', nil, nil)
+    definition.save
+    visit("/words/#{word.id}/definitions/")
+    fill_in("defin_name", :with => 'moving fast')
+    click_link_or_button('Add definition')
     expect(page).to have_content('moving fast')
   end
 end

@@ -13,7 +13,7 @@ class Definition
   end
 
   def self.all
-    @@definitions.values()
+    @@definitions.values
   end
 
   def ==(definition_to_compare)
@@ -43,8 +43,8 @@ class Definition
   end
 
   def update (name ,word_id)
-    @word_id = word_id
-    @name = name
+    self.name = name
+    self.word_id = word_id
     @@definitions[self.id] = Definition.new(self.name, self.word_id, self.id)
   end
 

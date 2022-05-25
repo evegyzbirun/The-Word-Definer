@@ -1,6 +1,6 @@
 
 class Word
-  attr_accessor :name, :id
+  attr_reader :name, :id
   @@words = {}
   @@total_lines = 0
 
