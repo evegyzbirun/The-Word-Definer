@@ -5,6 +5,8 @@ require('./lib/definition')
 require('pry')
 also_reload('lib/**/*.rb')
 
+
+
 get('/') do
   @words = Word.all
   erb(:words)
@@ -48,7 +50,7 @@ delete('/words/:id') do
   erb(:words)
 end
 
-get('/words/:id/definitions/definition_id') do
+get('/words/:id/definitions/:definition_id') do
   @defin = Definition.find(params[:definition_id].to_i())
   erb(:definition)
 end
@@ -62,11 +64,11 @@ patch('/words/:id/definitions/:definition_id') do
   @word = Word.find(params[:id].to_i())
   defin = Definition.find(params[:definition_id].to_i())
   defin.update(params[:name], @word.id)
-  erb(:word)
+  erb(:definition)
 end
 delete('/words/:id/definitions/:definition_id') do
   defin = Definition.find(params[:definition_id].to_i())
   defin.delete()
   @word = Word.find(params[:id].to_i())
-  erb(:word)
+  erb(:definition)
 end
