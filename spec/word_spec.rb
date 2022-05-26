@@ -71,7 +71,7 @@ describe '#Word' do
       word1.save()
       definition1 = Definition.new("to be desired or approved of", word.id, nil)
       definition1.save()
-      definition2 = Definition.new('that which is morally right', word.id, nil)
+      definition2 = Definition.new("that which is morally right", word.id, nil)
       definition2.save()
       expect(word1.definitions).to(eq([definition1, definition2]))
     end
