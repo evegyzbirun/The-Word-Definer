@@ -1,6 +1,7 @@
 require 'rspec'
 require 'pry'
 require 'word'
+require 'definition'
 
 describe '#Word' do
   before(:each) do
