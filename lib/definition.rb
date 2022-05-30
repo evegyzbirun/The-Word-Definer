@@ -17,7 +17,7 @@ class Definition
   end
 
   def ==(definition_to_compare)
-    self.name() == definition_to_compare.name() && self.word_id() == definition_to_compare.word_id() 
+    (self.name() == definition_to_compare.name()) && (self.word_id() == definition_to_compare.word_id())
   end
 
  
@@ -30,9 +30,9 @@ class Definition
 
   def self.find_by_word(wrd_id)
     definitions = []
-    @@definitions.values.each do |defins|
-      if defins.word.id == wrd_id
-        definitions.push(defins)
+    @@definitions.values.each do |definition|
+      if definition.word_id == wrd_id
+        definitions.push(definition)
       end
     end
     definitions

@@ -16,7 +16,10 @@ class Word
   def ==(word_to_compare)
     self.name() == word_to_compare.name()
   end
-
+  def delete
+    @@words.delete(self.id)
+  end
+  
  
 
   def self.clear
@@ -32,15 +35,13 @@ class Word
   def update (name)
     @name = name
   end
-  def delete
-    @@words.delete(self.id)
-  end
+  
   
   def self.find(id)
     @@words[id]
   end
   
-  def definitions()
+  def definitions
     Definition.find_by_word(self.id)
   end
 end

@@ -67,14 +67,14 @@ describe '#Word' do
     end
   end
   describe('#definitions') do
-    it('it returns word definitions') do
-      word1 = Word.new("good", nil)
-      word1.save()
-      definition1 = Definition.new("to be desired or approved of", word.id, nil)
+    it('it returns definitions of the word') do
+      word = Word.new("good", nil)
+      word.save()
+      definition1 = Definition.new("to be desired or approved of", @word_id, nil)
       definition1.save()
-      definition2 = Definition.new("that which is morally right", word.id, nil)
+      definition2 = Definition.new("that which is morally right", @word_id, nil)
       definition2.save()
-      expect(word1.definitions).to(eq([definition1, definition2]))
+      expect(word.definitions).to(eq([definition1, definition2]))
     end
   end
  end
