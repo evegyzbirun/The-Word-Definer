@@ -13,17 +13,17 @@ describe '#definition' do
 
   describe ('.all') do 
     it("returns a list of all definition ") do 
-      definition1 = Definition.new("to be desired or approved of", @word_id, 1)
+      definition1 = Definition.new("to be desired or approved of", @word.id, 1)
       definition1.save()
-      definition2 = Definition.new('that which is morally right', @word_id, 2)
+      definition2 = Definition.new('that which is morally right', @word.id, 2)
       definition2.save()
       expect(Definition.all).to(eq([definition1, definition2]))
     end
   end
   describe ('#==') do 
   it('is the same definition with same attributes as another word') do 
-    definition1 = Definition.new('to be desired or approved of',@word_id, 1)
-    definition2 = Definition.new('to be desired or approved of',@word_id, 1)
+    definition1 = Definition.new('to be desired or approved of',@word.id, 1)
+    definition2 = Definition.new('to be desired or approved of',@word.id, 1)
     expect(definition1).to(eq(definition2))
     end
   end
@@ -31,26 +31,26 @@ describe '#definition' do
 
     describe('#save') do 
     it ('saves words') do
-      definition1 = Definition.new("to be desired or approved of", @word_id, nil)
+      definition1 = Definition.new("to be desired or approved of", @word.id, nil)
       definition1.save()
-      definition2 = Definition.new('that which is morally right', @word_id, nil)
+      definition2 = Definition.new('that which is morally right', @word.id, nil)
       definition2.save()
     expect(Definition.all).to(eq([definition1, definition2]))
     end
   end 
     describe('#update') do 
     it ('updates a definition by id') do
-      definition1 = Definition.new('to be desired or approved of', @word_id, nil)
+      definition1 = Definition.new('to be desired or approved of', @word.id, nil)
       definition1.save()
-      definition1.update('that which is morally right', @word_id)
+      definition1.update('that which is morally right', @word.id)
       expect(definition1.name).to(eq('that which is morally right'))
     end
   end
     describe('#delete') do
       it ('delete definition by id') do
-        definition1 = Definition.new('to be desired or approved of', @word_id, nil)
+        definition1 = Definition.new('to be desired or approved of', @word.id, nil)
         definition1.save()
-        definition2 = Definition.new('that which is morally right', @word_id, nil)
+        definition2 = Definition.new('that which is morally right', @word.id, nil)
         definition2.save()
         definition1.delete()
         expect(Definition.all).to(eq([definition2]))
@@ -58,9 +58,9 @@ describe '#definition' do
     end
     describe('.clear') do
       it ('clears all definitions') do
-        definition1 = Definition.new('to be desired or approved of', @word_id, nil)
+        definition1 = Definition.new('to be desired or approved of', @word.id, nil)
         definition1.save()
-        definition2 = Definition.new('that which is morally right', @word_id, nil)
+        definition2 = Definition.new('that which is morally right', @word.id, nil)
         definition2.save()
         Definition.clear()
         expect(Definition.all).to(eq([]))
@@ -68,11 +68,30 @@ describe '#definition' do
     end
     describe('.find') do
       it ('find a definition by id') do
-        definition1 = Definition.new('to be desired or approved of', @word_id, nil)
+        definition1 = Definition.new('to be desired or approved of', @word.id, nil)
         definition1.save()
-        definition2 = Definition.new('that which is morally right', @word_id, nil)
+        definition2 = Definition.new('that which is morally right', @word.id, nil)
         definition2.save()
         expect(Definition.find(definition1.id)).to(eq(definition1))
+      end
+    end
+    describe('.find_by_word') do
+      it('find defenitions by a word') do
+        word1 = Word.new('fight', nil)
+        word1.save()
+        definition1 = Definition.new("competition with someone", word1.id, nil)
+        definition1.save()
+        definition2 = Definition.new("boxing", @word.id, nil)
+        definition2.save()
+       
+        expect(Definition.find_by_word(word1.id)).to(eq([definition1]))
+      end
+    end
+    describe('#word') do
+    it("find the word with a song belong to") do
+      definition3 = Definition.new("boxing", @word.id, nil)
+      definition3.save()
+      expect(definition3.word()).to(eq(@word))
       end
     end
 end

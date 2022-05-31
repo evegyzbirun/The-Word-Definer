@@ -14,7 +14,7 @@ class Word
   end
 
   def ==(word_to_compare)
-    self.name() == word_to_compare.name()
+    self.name() == word_to_compare.name() && self.id() == word_to_compare.id()
   end
   def delete
     @@words.delete(self.id)

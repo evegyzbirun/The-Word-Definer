@@ -15,8 +15,8 @@ describe '#Word' do
   end
   describe ('#==') do 
     it('is the same word with same attributes as another word') do 
-      word = Word.new('car', nil)
-      word2 = Word.new('car', nil)
+      word = Word.new('car', 2)
+      word2 = Word.new('car', 2)
       expect(word).to(eq(word2))
     end
   end 
@@ -70,11 +70,13 @@ describe '#Word' do
     it('it returns definitions of the word') do
       word = Word.new("good", nil)
       word.save()
-      definition1 = Definition.new("to be desired or approved of", @word_id, nil)
-      definition1.save()
-      definition2 = Definition.new("that which is morally right", @word_id, nil)
+      definition = Definition.new("to be desired or approved of", word.id, nil)
+      definition.save()
+      definition2 = Definition.new("that which is morally right", word.id, nil)
       definition2.save()
-      expect(word.definitions).to(eq([definition1, definition2]))
+      
+     
+      expect(word.definitions()).to(eq([definition2, definition]))
     end
   end
  end
