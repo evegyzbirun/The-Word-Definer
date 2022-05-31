@@ -88,10 +88,10 @@ describe '#definition' do
       end
     end
     describe('#word') do
-    it("find the word with a song belong to") do
-      definition3 = Definition.new("boxing", @word.id, nil)
-      definition3.save()
-      expect(definition3.word()).to(eq(@word))
+      it("find the word using a definition") do
+        definition = Definition.new("to be desired or approved of", @word.id, nil)
+        definition.save()
+        expect(definition.word()).to(eq(@word))
       end
     end
 end
